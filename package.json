@@ -1,6 +1,6 @@
 {
-  "name": "qianfan-node-sdk",
-  "version": "0.0.2",
+  "name": "@zhaoyanxiang/qianfan-node-sdk",
+  "version": "0.0.4",
   "description": "千帆大模型非官方 Nodejs SDK Qianfan big model unofficial sdk for Nodejs",
   "main": "dist/qianfan.js",
   "types": "dist/qianfan.d.ts",
@@ -18,9 +18,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/greywen/qianfan-node"
+    "url": "https://github.com/zhaoyanxiang/qianfan-node"
   },
-  "author": "gy gray.wen@outlook.com",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "author": "zhaoyanxiang",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.10",

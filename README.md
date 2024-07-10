@@ -12,16 +12,22 @@
 - 为聊天机器人开发提供了简单直观的 API。
 - 支持 ModelVersion，允许用户切换不同版本模型。
 
+## 在原版基础上修改
+- 大模型参数支持直接传字符串，兼容后续推出的新模型
+- 解决json反序列化时转义符导致的报错问题
+
 ## 安装
 
 ```
-npm install qianfan-node-sdk
+npm install @zhaoyanxiang/qianfan-node-sdk
 ```
 
 ## 使用方法
 
 ```typescript
-QianfanClient client = new QianfanClient(APIKey, SecretKey);
+import { QianfanClient, ChatMessage, Models } from 'qianfan-node-sdk'
+
+const client = new QianfanClient(APIKey, SecretKey);
 ```
 
 ### 示例 1：使用流 API 和回调与虚拟助手聊天（ChatGLM2_6B_32K 模型）
@@ -29,8 +35,6 @@ QianfanClient client = new QianfanClient(APIKey, SecretKey);
 以下示例显示了如何使用 `ChatAsync` 方法与虚拟助手聊天：
 
 ```typescript
-QianfanClient client = new QianfanClient(APIKey, SecretKey);
-
 const messages = [ChatMessage.fromUser('简单介绍下中国！')];
 let contents = '';
 await client.chatAsync(
@@ -49,7 +53,6 @@ expect(contents).toContain('中国');
 以下示例显示了如何使用 `ChatAsStreamAsync` 方法和 Qianfan_Chinese_Llama_2_7B 模型以及流 API 与虚拟助手聊天：
 
 ```typescript
-QianfanClient client = new QianfanClient(APIKey, SecretKey);
 const messages = [
   ChatMessage.fromUser(
     '你叫张三，一名5岁男孩，你在金色摇篮幼儿园上学，你的妈妈叫李四，是一名工程师'

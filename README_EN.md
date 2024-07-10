@@ -15,12 +15,14 @@ This project can be used to develop chatbots and virtual assistants that can int
 ## Installation
 
 ```
-npm install qianfan-node-sdk
+npm install @zhaoyanxiang/qianfan-node-sdk
 ```
 
 ## Usage
 
 ```typescript
+import { QianfanClient, ChatMessage, Models } from 'qianfan-node-sdk'
+
 const client = new QianfanClient(APIKey, SecretKey);
 ```
 
@@ -30,8 +32,6 @@ const client = new QianfanClient(APIKey, SecretKey);
 The following example shows how to chat with a virtual assistant using the `ChatAsync` method:
 
 ```typescript
-const client = new QianfanClient(APIKey, SecretKey);
-
 const messages = [ChatMessage.fromUser('简单介绍下中国！')];
 let contents = '';
 
@@ -51,8 +51,6 @@ expect(contents).toContain('中国');
 The following example shows how to chat with a virtual assistant using the `ChatAsStreamAsync` method and the Qianfan_Chinese_Llama_2_7B model along with the streaming API:
 
 ```typescript
-const client = new QianfanClient(APIKey, SecretKey);
-
 const messages = [
   ChatMessage.fromUser('你叫张三，一名5岁男孩，你在金色摇篮幼儿园上学，你的妈妈叫李四，是一名工程师'),
   ChatMessage.fromAssistant('明白'),
